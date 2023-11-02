@@ -2,6 +2,7 @@ import {
   makeSource,
   defineDocumentType,
   defineNestedType,
+  FieldDefs,
 } from '@contentlayer/source-files';
 
 const DescribedLink = defineNestedType(() => ({
@@ -21,21 +22,30 @@ const Links = defineNestedType(() => ({
   },
 }));
 
+const fields: FieldDefs = {
+  title: { type: 'list', of: { type: 'string' } },
+  keywords: { type: 'list', of: { type: 'string' } },
+  description: { type: 'markdown' },
+  links: { type: 'nested', of: Links },
+};
+
 const Post = defineDocumentType(() => ({
   name: 'Post',
   filePathPattern: '*.md',
   contentType: 'markdown',
-  fields: {
-    title: { type: 'list', of: { type: 'string' } },
-    keywords: { type: 'list', of: { type: 'string' } },
-    description: { type: 'markdown' },
-    links: { type: 'nested', of: Links },
-  },
+  fields,
+}));
+
+const Stub = defineDocumentType(() => ({
+  name: 'Stub',
+  filePathPattern: 'stubs/*.md',
+  contentType: 'markdown',
+  fields,
 }));
 
 export default makeSource({
   contentDirPath: 'content',
-  documentTypes: [Post],
+  documentTypes: [Post, Stub],
   onSuccess: async (importData) => {
     const { allDocuments } = await importData();
     console.log({
