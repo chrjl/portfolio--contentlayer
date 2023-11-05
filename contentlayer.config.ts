@@ -23,7 +23,7 @@ const Links = defineNestedType(() => ({
 }));
 
 const fields: FieldDefs = {
-  title: { type: 'list', of: { type: 'string' } },
+  title: { type: 'list', of: { type: 'string' }, required: true },
   keywords: { type: 'list', of: { type: 'string' } },
   description: { type: 'markdown' },
   links: { type: 'nested', of: Links },
