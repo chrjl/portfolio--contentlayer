@@ -8,8 +8,8 @@ import {
 const DescribedLink = defineNestedType(() => ({
   name: 'DescribedLink',
   fields: {
-    description: { type: 'string' },
-    href: { type: 'string' },
+    description: { type: 'string', required: true },
+    href: { type: 'string', required: true },
   },
 }));
 
