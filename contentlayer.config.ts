@@ -19,6 +19,7 @@ const Links = defineNestedType(() => ({
     repo: { type: 'list', of: { type: 'string' } },
     target: { type: 'list', of: { type: 'string' } },
     assets: { type: 'list', of: DescribedLink },
+    documentation: { type: 'list', of: { type: 'string' } },
   },
 }));
 
