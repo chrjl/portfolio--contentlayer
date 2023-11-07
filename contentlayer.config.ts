@@ -44,9 +44,16 @@ const Stub = defineDocumentType(() => ({
   fields,
 }));
 
+const Archive = defineDocumentType(() => ({
+  name: 'Archive',
+  contentType: 'markdown',
+  fields,
+}));
+
 export default makeSource({
   contentDirPath: 'content',
-  documentTypes: [Post, Stub],
+  contentDirExclude: ['archives'],
+  documentTypes: [Post, Stub, Archive],
   onSuccess: async (importData) => {
     const { allDocuments } = await importData();
     console.log({
