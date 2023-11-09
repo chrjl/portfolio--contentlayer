@@ -53,7 +53,8 @@ const Archive = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'content',
-  contentDirExclude: ['archives'],
+  contentDirExclude:
+    process.env.NODE_ENV === 'development' ? [] : ['archives', 'stubs'],
   documentTypes: [Post, Stub, Archive],
   onSuccess: async (importData) => {
     const { allDocuments } = await importData();
