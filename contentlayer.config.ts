@@ -32,7 +32,7 @@ const fields: FieldDefs = {
 
 const Post = defineDocumentType(() => ({
   name: 'Post',
-  filePathPattern: '*.md',
+  filePathPattern: 'posts/*.md',
   contentType: 'markdown',
   fields,
 }));
@@ -45,6 +45,7 @@ const Stub = defineDocumentType(() => ({
 }));
 
 const Archive = defineDocumentType(() => ({
+  filePathPattern: 'archives/*.md',
   name: 'Archive',
   contentType: 'markdown',
   fields,
