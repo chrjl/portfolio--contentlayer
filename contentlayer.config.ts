@@ -1,3 +1,5 @@
+import remarkGfm from 'remark-gfm';
+
 import {
   makeSource,
   defineDocumentType,
@@ -56,6 +58,9 @@ export default makeSource({
   contentDirExclude:
     process.env.NODE_ENV === 'development' ? [] : ['archives', 'stubs'],
   documentTypes: [Post, Stub, Archive],
+  markdown: {
+    remarkPlugins: [remarkGfm],
+  },
   onSuccess: async (importData) => {
     const { allDocuments } = await importData();
     console.log({
