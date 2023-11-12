@@ -12,6 +12,7 @@ const DescribedLink = defineNestedType(() => ({
   fields: {
     description: { type: 'string', required: true },
     href: { type: 'string', required: true },
+    icon: { type: 'string' },
   },
 }));
 
