@@ -32,6 +32,7 @@ const fields: FieldDefs = {
   status: { type: 'markdown' },
   description: { type: 'markdown' },
   links: { type: 'nested', of: Links },
+  isPublished: { type: 'boolean' },
 };
 
 const Post = defineDocumentType(() => ({
