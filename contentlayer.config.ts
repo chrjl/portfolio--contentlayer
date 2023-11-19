@@ -37,7 +37,7 @@ const fields: FieldDefs = {
 
 const Post = defineDocumentType(() => ({
   name: 'Post',
-  filePathPattern: 'posts/*.md',
+  filePathPattern: '*.md',
   contentType: 'markdown',
   fields,
 }));
@@ -57,9 +57,7 @@ const Archive = defineDocumentType(() => ({
 }));
 
 export default makeSource({
-  contentDirPath: 'content',
-  contentDirExclude:
-    process.env.NODE_ENV === 'development' ? [] : ['archives', 'stubs'],
+  contentDirPath: 'posts',
   documentTypes: [Post, Stub, Archive],
   markdown: {
     remarkPlugins: [remarkGfm],
