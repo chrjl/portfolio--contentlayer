@@ -1,4 +1,5 @@
 import remarkGfm from 'remark-gfm';
+import remarkDeflist from 'remark-deflist';
 
 import {
   makeSource,
@@ -60,7 +61,7 @@ export default makeSource({
   contentDirPath: 'posts',
   documentTypes: [Post, Stub, Archive],
   markdown: {
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [remarkGfm, remarkDeflist],
   },
   onSuccess: async (importData) => {
     const { allDocuments } = await importData();

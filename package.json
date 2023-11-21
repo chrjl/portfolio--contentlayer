@@ -9,6 +9,7 @@
   "dependencies": {
     "@contentlayer/source-files": "^0.3.4",
     "contentlayer": "^0.3.4",
+    "remark-deflist": "^1.0.0",
     "remark-gfm": "~3.0.1"
   },
   "peerDependencies": {
